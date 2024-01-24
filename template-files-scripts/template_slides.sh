@@ -6,28 +6,41 @@ format. Here I also use the marp extension for VSCode,
 a tool to write slides in markdown format
 comment
 
+disc="$1"
+turm="$2"
+aul="$3"
+
+run(){
 #Parametros
-DISCIPLINA=$1
-TURMA=$2
-AULA=$3
+local Disciplina="$1"
+local Turma="$2"
+local Aula="$3"
 
 #Template
-
 cat << EOF
+
 ---
 marp: true
 theme: uncover
 _class: invert
 ---
 
-# $3 :computer:
+# $Aula :computer:
 
-$1
-
-Sistemas de Informação - $2
+$Disciplina
+Sistemas de Informação - $Turma
 
 ---
 
-### $3
+### $Aula
 
 EOF
+}
+
+run "$disc" "$turm" "$aul" 2>logs.txt 1>text.md
+if [ $? -eq 0 ]
+then
+	echo "File created"
+else
+	echo "Error while creating file. Please check the log file"
+fi
