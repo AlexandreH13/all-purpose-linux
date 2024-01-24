@@ -9,6 +9,7 @@ comment
 disc="$1"
 turm="$2"
 aul="$3"
+path="$4"
 
 run(){
 #Parametros
@@ -37,7 +38,7 @@ Sistemas de Informação - $Turma
 EOF
 }
 
-run "$disc" "$turm" "$aul" 2>logs.txt 1>text.md
+run "$disc" "$turm" "$aul" 2>logs.txt 1>"$path/slides.md"
 if [ $? -eq 0 ]
 then
 	echo "File created"
