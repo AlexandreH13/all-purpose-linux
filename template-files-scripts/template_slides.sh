@@ -19,7 +19,6 @@ local Aula="$3"
 
 #Template
 cat << EOF
-
 ---
 marp: true
 theme: uncover
